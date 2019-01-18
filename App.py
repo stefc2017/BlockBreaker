@@ -62,7 +62,6 @@ def play_game(utility, DISPLAYSURF):
             player.reduceLives()
             ball.resetPosition()
 
-        print(player.getLives())
         pygame.display.update()
         fps_clock.tick(utility.getFPS())
 
@@ -77,11 +76,7 @@ def load_main_screen(utility, DISPLAYSURF):
     #title
     utility.draw_text(DISPLAYSURF, "GAME DEMO", 50, 235, 100, "green", "white")
     #play
-    utility.draw_text(DISPLAYSURF, "PLAY", 25, 75, 300, "green", "black")
-    #game modes
-    utility.draw_text(DISPLAYSURF, "GAME MODES", 25, 225, 300, "green", "black")
-    #options
-    utility.draw_text(DISPLAYSURF, "OPTIONS", 25, 385, 300, "green", "black")
+    utility.draw_text(DISPLAYSURF, "PLAY", 25, 225, 300, "green", "black")
 
     while doesnt_want_to_play: # main game loop
         for event in pygame.event.get():
@@ -92,18 +87,11 @@ def load_main_screen(utility, DISPLAYSURF):
                 x, y = event.pos
                 current_coors.setCoordinates(x, y)
                 #clicked play
-                if current_coors.getX() in range(53, 97) and current_coors.getY() in range(290, 309):
+                if current_coors.getX() in range(166, 284) and current_coors.getY() in range(290, 309):
                     doesnt_want_to_play = False
                     pygame.mixer.music.stop()
                     DISPLAYSURF.fill(utility.getColor("white"))
                     time.sleep(0.1)
-                #clicked game modes
-                elif current_coors.getX() in range(166, 284) and current_coors.getY() in range(290, 309):
-                    print("game modes")
-                # clicked options
-                elif current_coors.getX() in range(346, 425) and current_coors.getY() in range(290, 309):
-                    print("options")
-
         pygame.display.update()
 
 
